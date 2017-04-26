@@ -1,6 +1,6 @@
 # npmdoc-gremlins.js
 
-#### api documentation for  [gremlins.js (v0.1.0)](https://github.com/marmelab/gremlins.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-gremlins.js.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gremlins.js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gremlins.js.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gremlins.js)
+#### basic api documentation for  [gremlins.js (v0.1.0)](https://github.com/marmelab/gremlins.js)  [![npm package](https://img.shields.io/npm/v/npmdoc-gremlins.js.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gremlins.js) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gremlins.js.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gremlins.js)
 
 #### A monkey testing library written in JavaScript, for Node.js and the browser. Use it to check the robustness of web applications by unleashing a horde of undisciplined gremlins.
 
@@ -61,7 +61,8 @@
     "scripts": {
         "test": "make test"
     },
-    "version": "0.1.0"
+    "version": "0.1.0",
+    "bin": {}
 }
 ```
 
