@@ -281,7 +281,23 @@ e,&#x22;confirm&#x22;)}),o.watchEvents.indexOf(&#x22;prompt&#x22;)!==-1&#x26;&#x
 .sentence()},s={warn:function(){}},o={watchEvents:e,confirmResponse:r,promptResponse:i,logger:s,randomizer:new n},u=window.alert
 ,a=window.confirm,f=window.prompt;return l.cleanUp=function(){return window.alert=u,window.confirm=a,window.prompt=f,l},t(l,o),l
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*       // do stuff
+*       oldAlert(message);
+*     }
+*   });
+*
+* The gremlins object contains a few mogwai species than you can add:
+*
+*   horde.mogwai(gremlins.mogwais.<span class="apidocCodeKeywordSpan">alert</span>());
+*
+* Mogwais are called once before the horde is unleashed. Just like a
+* before() callback, a mogwai can be synchronous or asynchronous.
+*
+* What distinguishes a mogwai function from a simple before() function
+* is that mogwai functions can provide a cleanUp() function to be called
+* once after the gremlins finished their job.
+...</pre></li>
     </ul>
 
 
@@ -298,7 +314,19 @@ e,&#x22;confirm&#x22;)}),o.watchEvents.indexOf(&#x22;prompt&#x22;)!==-1&#x26;&#x
  e;window.requestAnimationFrame(t)}function a(){s=!0,window.requestAnimationFrame(o)}var e={log:function(){},warn:function(){},error
 :function(){}},n=function(e){return e&#x3c;10?&#x22;error&#x22;:e&#x3c;20?&#x22;warn&#x22;:&#x22;log&#x22;},r={delay:500,levelSelector:n,logger:e},i=-Infinity,s;return
 a.cleanUp=function(){return s=!1,a},t(a,r),a}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        .gremlin(function() {
+            alert(&#x27;here&#x27;);
+        })
+        .after(function() {
+            this.log(&#x27;finished!&#x27;);
+        })
+        .mogwai(gremlins.mogwais.alert())
+        .mogwai(gremlins.mogwais.<span class="apidocCodeKeywordSpan">fps</span>())
+        .mogwai(gremlins.mogwais.gizmo().maxErrors(2))
+        .unleash();
+});
+...</pre></li>
     </ul>
 
 
@@ -314,7 +342,18 @@ a.cleanUp=function(){return s=!1,a},t(a,r),a}</pre></li>
 stopped test execution after &#x22;,n.maxErrors,&#x22;errors&#x22;)},4))}var e=0,t=this;r=window.onerror,window.onerror=function(e,t,n){return
 s(),r?r(e,t,n):!1},i=n.logger.error,n.logger.error=function(){s(),i.apply(n.logger,arguments)}}var e={warn:function(){}},n={maxErrors
 :10,logger:e},r,i;return s.cleanUp=function(){return window.onerror=r,n.logger.error=i.bind(n.logger),s},t(s,n),s}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+            alert(&#x27;here&#x27;);
+        })
+        .after(function() {
+            this.log(&#x27;finished!&#x27;);
+        })
+        .mogwai(gremlins.mogwais.alert())
+        .mogwai(gremlins.mogwais.fps())
+        .mogwai(gremlins.mogwais.<span class="apidocCodeKeywordSpan">gizmo</span>().maxErrors(2))
+        .unleash();
+});
+...</pre></li>
     </ul>
 
 
@@ -461,7 +500,23 @@ e.createElement(&#x22;div&#x22;);o.style.border=&#x22;3px solid orange&#x22;,o.s
 =&#x22;opacity 1s ease-out&#x22;,o.style.transition=&#x22;opacity 1s ease-out&#x22;,o.style.left=n+&#x22;px&#x22;,o.style.top=r+&#x22;px&#x22;,o.style.textAlign=&#x22;center
 &#x22;,o.style.paddingTop=&#x22;7px&#x22;,o.innerHTML=String.fromCharCode(s);var u=i.appendChild(o);setTimeout(function(){i.removeChild(u)},1e3
 ),setTimeout(function(){u.style.opacity=0},50)},u={eventTypes:s,showAction:o,logger:{},randomizer:new n};return t(a,u),a}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*
+* Note that keyboard events must be localized somewhere on screen, so this
+* gremlins picks a random screen location first.
+*
+* By default, the typer gremlin activity is showed by a letter surrounded by
+* a red circle.
+*
+*   var typerGremlin = gremlins.species.<span class="apidocCodeKeywordSpan">typer</span>();
+*   horde.gremlin(typerGremlin);
+*
+* The typerGremlin gremlin can be customized as follows:
+*
+*   typerGremlin.eventTypes([&#x27;keypress&#x27;, &#x27;keyup&#x27;, &#x27;keydown&#x27;]); // types of events to trigger
+*   typerGremlin.showAction(function(element) { // show the gremlin activity on screen });
+*   typerGremlin.logger(loggerObject); // inject a logger
+...</pre></li>
     </ul>
 
 
@@ -497,7 +552,23 @@ e.createElement(&#x22;div&#x22;);o.style.border=&#x22;3px solid orange&#x22;,o.s
 i,s)},e.delay)})}function c(){if(r)return;if(n.length===0)return o();l(n.shift(),0,c)}var a=s&#x26;&#x26;s.nb?s.nb:e.nb,n=n.slice(0),f=this
 ;r=!1,i=u,c()}function o(){typeof i==&#x22;function&#x22;&#x26;&#x26;i(),i=null}var e={delay:10,nb:100},r,i;return s.stop=function(){r=!0,setTimeout
 (o,4)},n(s,e),s}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*       gremlin.apply(horde);
+*     });
+*     done();
+*   });
+*
+* The gremlins object contains a few strategies than you can add:
+*
+*   horde.strategy(gremlins.strategies.<span class="apidocCodeKeywordSpan">bySpecies</span>());
+*
+* You can add several strategies by calling strategy() more than once.
+* They will be executed in the order they were registered.
+*
+* If a horde is unleashed without manually adding at least a single
+* strategy, all the default strategy (allTogether) is used.
+*
+...</pre></li>
     </ul>
 
 
